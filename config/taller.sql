@@ -18,4 +18,4 @@ WHERE `id_prod` = '6';
 
 SELECT * FROM `tab_productos`;
 
--- confirmacion
+-- confirmacion editado desde Visual Studio Home
