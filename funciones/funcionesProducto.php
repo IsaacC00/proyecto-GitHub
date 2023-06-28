@@ -6,8 +6,10 @@ include_once "../config/conectarDB.php";
 function getAllProductos()
 {
   try {
-    $sql = "SELECT * FROM tab_productos
-     ORDER BY prod_desc";
+    $sql = "SELECT * FROM tab_productos p, tab_marcas m, tab_categoria c
+    WHERE p.cat_id=c.cat_id
+    AND p.mar_id=m.mar_id
+   ORDER BY prod_desc";
 
     $conexion = conectaBaseDatos();
     $stmt = $conexion->prepare($sql);

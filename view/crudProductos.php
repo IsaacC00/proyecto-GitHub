@@ -10,7 +10,7 @@
 
 ?>
 <br>
-<a href="nuevoProducto.php" type="button" class="btn btn-primary">Nuevo Producto</a>
+<a href="proNuevo.php" type="button" class="btn btn-primary">Nuevo Producto</a>
 <br>
 <br>
 <table class="table table-striped">
@@ -41,10 +41,28 @@
       <th scope="row"><?php echo $row['id_prod']; ?></th>
       <td> <?php echo $row['prod_desc']; ?> </td>
       <td> <?php echo $row['prod_precio_c']; ?> </td>
-      <td> <?php echo $row['mar_id']; ?> </td>
-      <td> <?php echo $row['cat_id']; ?> </td>
-      <td> <?php echo $row['prod_nivel_azucar']; ?> </td>
-      <td> <?php echo $row['prod_aplica_iva']; ?> </td>
+      <td> <?php echo $row['mar_nombre']; ?> </td>
+      <td> <?php echo $row['cat_desc']; ?> </td>
+      <td> <?php 
+        
+          switch( $row['prod_nivel_azucar'] ){
+
+            case "M": echo "Medio"; break;
+            case "B": echo "Bajo"; break;
+            case "A": echo "Alto"; break;
+            case "N": echo "No tiene"; break;
+          }
+          
+          
+          ?> </td>
+      <td> <?php 
+        
+        if($row['prod_aplica_iva']==1) 
+              echo "Si";
+              else
+              echo "No";
+      
+      ?> </td>
 
       <td> 
           <img src="../img/<?php echo $row['prod_imagen']; ?>" width="100px" alt="">
