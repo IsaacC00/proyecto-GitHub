@@ -58,6 +58,19 @@
 
                 </div>
 
+                <label for=""><p>Nivel de Azucar:</p> </label>
+                <div class="input-group mb-3">
+                <input type="checkbox" name="chkPagaIva" class="form-check-input">
+                <label class="form-check-label"><strong>Paga IVA</strong></label>
+                </div>
+
+                <label for="">Especificaciones:</label>
+                <br>
+                <br>
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">#</span>
+                <textarea name="txtEspecifi" class="form-control" id="" cols="10" rows="5"></textarea>
+                </div>
 
             </form>
         </div>
