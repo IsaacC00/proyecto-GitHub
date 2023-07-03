@@ -2,11 +2,11 @@
 
 include_once "../config/conectarDB.php";
 
-function getAllMarcas()
+function getAllCategoria()
 {
   try {
-    $sql = "SELECT * FROM tab_marcas
-   ORDER BY mar_nombre";
+    $sql = "SELECT * FROM tab_categoria
+   ORDER BY cat_desc";
 
     $conexion = conectaBaseDatos();
     $stmt = $conexion->prepare($sql);

@@ -2,6 +2,8 @@
 <?php
     include_once "head.php";
     include_once "../funciones/funcionesMarca.php";
+    include_once "../funciones/funcionesCategoria.php";
+    
 
 ?>
 <h3>Nuevo</h3>
@@ -96,21 +98,44 @@
                         <?php
                         
                             $marcas=getAllMarcas();
-
+                            $catego=getAllCategoria();
                         ?>
-
-                        <select class="form-select" name="cboMarcas" id="">
+                        <label for="">Marca</label>
+                        <select class="form-select" name="cboMarcas" id="" require>
                             <option value="">Seleccione Marca</option>
                             <?php
                                 if($marcas != null){
                                         
                                     foreach ($marcas as $indice => $rowM) {
-                                        
+                            ?>
+                                <option value="<?php  echo $rowM['mar_id'];  ?>"> <?php  echo $rowM['mar_nombre'];  ?> </option>
+                            <?php 
                                     }
                             
                                 }
                             ?>
                         </select>
+
+                        <!--cboCategorias Inicio--->
+                        <br>
+                        <label for="">Categoria</label>
+                        <select class="form-select" name="cboCategoria" id="" require>
+                            
+                            <option value="">Seleccione Categoria</option>
+                            <?php
+                                if($marcas != null){
+                                        
+                                    foreach ($catego as $indice => $rowC) {
+                            ?>
+                                <option value="<?php  echo $rowC['cat_id'];  ?>"> <?php  echo $rowC['cat_desc'];  ?> </option>
+                            <?php 
+                                    }
+                            
+                                }
+                            ?>
+                        </select>
+
+                        <!--cboCategorias Fin--->          
 
                     </div>
 
