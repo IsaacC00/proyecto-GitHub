@@ -1,6 +1,8 @@
 
 <?php
     include_once "head.php";
+    include_once "../funciones/funcionesMarca.php";
+
 ?>
 <h3>Nuevo</h3>
 
@@ -64,31 +66,58 @@
 
                         </div>
 
-                        <label for=""><p>Nivel de Azucar:</p> </label>
+                        <label for=""><p>Iva:</p> </label>
                         <div class="input-group mb-3">
                         <input type="checkbox" name="chkPagaIva" class="form-check-input">
                         <label class="form-check-label"><strong>Paga IVA</strong></label>
                         </div>
 
-                        <label for="">Especificaciones:</label>
-                        <br>
-                        <br>
-                        <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">#</span>
-                        <textarea name="txtEspecifi" class="form-control" id="" cols="10" rows="5"></textarea>
-                        </div>
                         </div>
                 </div> 
 
             </div>
 
             <div class="col-6">
-            <h3>lado derecho</h3>
-            </div>
+                <div class="card card-primary">
 
-              
+                    <div class="card card-body">
+
+                        <h3>lado derecho</h3>
+
+                        
+                        <label for="">Especificaciones:</label>
+                        <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">#</span>
+                        <textarea name="txtEspecifi" class="form-control" id="" cols="8" rows="1"></textarea>
+                        </div>
+                        <!---In Imagen---->
+                        <!---Fin Imagen---->
+                        
+                        <?php
+                        
+                            $marcas=getAllMarcas();
+
+                        ?>
+
+                        <select class="form-select" name="cboMarcas" id="">
+                            <option value="">Seleccione Marca</option>
+                            <?php
+                                if($marcas != null){
+                                        
+                                    foreach ($marcas as $indice => $rowM) {
+                                        
+                                    }
+                            
+                                }
+                            ?>
+                        </select>
+
+                    </div>
+
+                 </div>
         </div>
 
+        </div>
         
     </form>
 
