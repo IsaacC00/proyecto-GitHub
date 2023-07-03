@@ -2,6 +2,8 @@
 <?php
     include_once "../funciones/funcionesMarca.php";
     include_once "../funciones/funcionesCategoria.php";
+    include_once "../funciones/funcionesProducto.php";
+    
 
     if(isset($_POST['btnGrabar'])){
         
@@ -20,9 +22,7 @@
             }
 
              $prod_especificacion=$_POST['txtEspecifi'];
-
              $prod_imagen= "sinImagen.jpg";
-             
              $mar_id=$_POST['cboMarcas'];
              $cat_id=$_POST['cboCategoria'];
 
