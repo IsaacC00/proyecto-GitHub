@@ -138,6 +138,8 @@
                         </select>
 
                         <!--cboCategorias Fin--->          
+                        <br>
+                         <button type="submit" class="btn btn-primary btn-sm" name="btnGrabar">Guardar</button>       
 
                     </div>
 
