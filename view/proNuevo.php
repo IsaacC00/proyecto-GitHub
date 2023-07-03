@@ -101,6 +101,7 @@
                             $marcas=getAllMarcas();
                             $catego=getAllCategoria();
                         ?>
+                        <!--cboMarcas Inicio--->
                         <label for="">Marca:</label>
                         <select class="form-select" name="cboMarcas" id="" require>
                             <option value="">Seleccione Marca</option>
@@ -116,7 +117,7 @@
                                 }
                             ?>
                         </select>
-
+                        <!--cboMarcas Fin--->
                         <!--cboCategorias Inicio--->
                         <br>
                         <label for="">Categoria:</label>
@@ -141,7 +142,8 @@
                     </div>
 
                  </div>
-        </div>
+            
+            </div>
 
         </div>
         
