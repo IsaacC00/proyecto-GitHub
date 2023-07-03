@@ -26,7 +26,7 @@
              $mar_id=$_POST['cboMarcas'];
              $cat_id=$_POST['cboCategoria'];
 
-             insertProducto(
+             if(insertProducto(
             $id_prod,
              $prod_desc,
              $prod_precio_c,
@@ -38,7 +38,12 @@
              $prod_especificacion,
              $prod_imagen,
              $mar_id,
-             $cat_id );
+             $cat_id )==true){
+                 echo "datos del productos guardados exitosamente";
+             }else{
+                echo "******* ERROR *******";
+                 
+             }
     }
 ?>
 

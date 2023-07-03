@@ -102,8 +102,6 @@ VALUES ( :pid_prod,
     $stmt->bindparam(":pprod_especificacion",$prod_imagen);
     $stmt->bindparam(":pprod_imagen",$mar_id);
     $stmt->bindparam(":pcat_id",$cat_id);
-    
-    
     $stmt->execute();
     return true; //OPCIONAL
   } catch (PDOException $e) {
