@@ -1,10 +1,51 @@
 
 <?php
-    include_once "head.php";
     include_once "../funciones/funcionesMarca.php";
     include_once "../funciones/funcionesCategoria.php";
-    
 
+    if(isset($_POST['btnGrabar'])){
+        
+             $id_prod=$_POST['txtCodigo'];
+             $prod_desc=$_POST['txtDesc'];
+             $prod_precio_c=$_POST['txtPrecio'];
+             $prod_precio_v=$_POST['txtPrecioV'];
+             $prod_stock=$_POST['txtStock'];
+             $prod_fecha_elab=$_POST['txtFechaElab'];
+             $prod_nivel_azucar=$_POST['cboNivelAzucar'];
+             
+             $prod_aplica_iva=0;
+             
+            if(isset($_POST['chkPagaIva'])){
+                $prod_aplica_iva=1;
+            }
+
+             $prod_especificacion=$_POST['txtEspecifi'];
+
+             $prod_imagen= "sinImagen.jpg";
+             
+             $mar_id=$_POST['cboMarcas'];
+             $cat_id=$_POST['cboCategoria'];
+
+             insertProducto(
+            $id_prod,
+             $prod_desc,
+             $prod_precio_c,
+             $prod_precio_v,
+             $prod_stock,
+             $prod_fecha_elab,
+             $prod_nivel_azucar,
+             $prod_aplica_iva,
+             $prod_especificacion,
+             $prod_imagen,
+             $mar_id,
+             $cat_id );
+    }
+?>
+
+<?php
+    
+    include_once "head.php";
+    
 ?>
 <h3>Nuevo</h3>
 
@@ -139,8 +180,14 @@
 
                         <!--cboCategorias Fin--->          
                         <br>
+                        
+                        <!--BOTON INICIO--->          
+                        
                          <button type="submit" class="btn btn-primary btn-sm" name="btnGrabar">Guardar</button>       
-
+                        
+                         <!--BOTON FINAL--->          
+                        
+                         
                     </div>
 
                  </div>
