@@ -68,11 +68,7 @@
 
                         </div>
 
-                        <label for=""><p>Iva:</p> </label>
-                        <div class="input-group mb-3">
-                        <input type="checkbox" name="chkPagaIva" class="form-check-input">
-                        <label class="form-check-label"><strong>Paga IVA</strong></label>
-                        </div>
+                        
 
                         </div>
                 </div> 
@@ -86,6 +82,11 @@
 
                         <h3>lado derecho</h3>
 
+                        <label for=""><p>Iva:</p> </label>
+                        <div class="input-group mb-3">
+                        <input type="checkbox" name="chkPagaIva" class="form-check-input">
+                        <label class="form-check-label"><strong>Paga IVA</strong></label>
+                        </div>
                         
                         <label for="">Especificaciones:</label>
                         <div class="input-group mb-3">
@@ -100,7 +101,7 @@
                             $marcas=getAllMarcas();
                             $catego=getAllCategoria();
                         ?>
-                        <label for="">Marca</label>
+                        <label for="">Marca:</label>
                         <select class="form-select" name="cboMarcas" id="" require>
                             <option value="">Seleccione Marca</option>
                             <?php
@@ -118,7 +119,7 @@
 
                         <!--cboCategorias Inicio--->
                         <br>
-                        <label for="">Categoria</label>
+                        <label for="">Categoria:</label>
                         <select class="form-select" name="cboCategoria" id="" require>
                             
                             <option value="">Seleccione Categoria</option>
