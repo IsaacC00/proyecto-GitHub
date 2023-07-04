@@ -22,7 +22,40 @@
             }
 
              $prod_especificacion=$_POST['txtEspecifi'];
-             $prod_imagen= "sinImagen.jpg";
+             
+
+
+            /****************************************** */
+
+            $imgFile = $_FILES['imguser']['name'];
+            $tmp_dir = $_FILES['imguser']['tmp_name'];
+            $imgSize = $_FILES['imguser']['size'];
+            $upload_dir = '../img';
+        
+            if (empty($imgFile)) {
+                $prod_imagen= "sinImagen.jpg";
+                move_uploaded_file($tmp_dir, $upload_dir . $prod_imagen);
+            } else {
+                $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION));
+                $valid_extensions = array('jpeg', 'jpg', 'gif');
+                /**$nombrearchivo = substr($apellidos, 0, 4) . '_' . substr($nombres, 0, 4) . $cedula;*/
+                $numero = rand(1000, 9999);
+                $prod_imagen = $numero . "." . $imgExt;
+        
+                if (in_array($imgExt, $valid_extensions)) {
+                    // Check file size '1MB'
+                    if ($imgSize < 1000000) {
+                        move_uploaded_file($tmp_dir, $upload_dir . $prod_imagen);
+                    } else {
+                        $error[] = "Atención, su archivo es muy grande, debe ser menor a 100 KB";
+                    }
+                } else {
+                    $error[] = "Lo siento, JPG, JPEG, PNG & GIF formatos de archivo permitidos";
+                }
+        
+            }
+
+            /****************************************** */
              $mar_id=$_POST['cboMarcas'];
              $cat_id=$_POST['cboCategoria'];
 
@@ -57,7 +90,7 @@
 <div class="container-fluid">
 
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
 
         <div class="row">
 
@@ -140,6 +173,30 @@
                         <textarea name="txtEspecifi" class="form-control" id="" cols="8" rows="1"></textarea>
                         </div>
                         <!---In Imagen---->
+
+                        <input type="hidden" name="txtCedulaPersonaFoto"
+                               value="">
+                        <input type="hidden" name="txtFotoAnterior"
+                               value="">
+                        <div class="input-group">
+                            <p>
+
+                                <img src="fotos/alumnos/user.png" id="imguserId"
+                                     class="img-circle"
+                                     height="150"
+                                     width="150"/>
+
+
+                                <input class="input-group" type="file" name="imguser" id="fotoId"
+                                       onchange="previewFoto()"
+                                       accept="image/*">
+                                <label for="ejemplo_archivo_1">Foto (Tam. máximo archivo
+                                    1 MB)</label>
+
+                            </p>
+
+                        </div>
+
                         <!---Fin Imagen---->
                         
                         <?php
@@ -184,11 +241,10 @@
                         </select>
 
                         <!--cboCategorias Fin--->          
-                        <br>
                         
                         <!--BOTON INICIO--->          
                         
-                         <button type="submit" class="btn btn-primary btn-sm" name="btnGrabar">Guardar</button>       
+                         <button type="submit" class="btn btn-primary btn-sm mt-3" name="btnGrabar">Guardar</button>       
                         
                          <!--BOTON FINAL--->          
                         
