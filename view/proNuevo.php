@@ -183,19 +183,21 @@
 
                     <div class="card card-body">
 
-                        <h3>lado derecho</h3>
-
-                        <label for=""><p>Iva:</p> </label>
-                        <div class="input-group mb-3">
-                        <input type="checkbox" name="chkPagaIva" class="form-check-input">
+                        <label for="" class=""><p>Iva:</p> </label>
+                        <div class="input-group mb-2">
+                        <input class="m-2" type="checkbox" name="chkPagaIva" class="form-check-input">
+                        <br>
                         <label class="form-check-label"><strong>Paga IVA</strong></label>
                         </div>
                         
                         <label for="">Especificaciones:</label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
-                        <textarea name="txtEspecifi" class="form-control" id="" cols="8" rows="1"></textarea>
+                        <textarea name="txtEspecifi" class="form-control" id="" cols="5" rows="3"></textarea>
                         </div>
+
+                        <div class="m-2"></div>
+                        
                         <!---In Imagen---->
 
                         <input type="hidden" name="txtCedulaPersonaFoto"
@@ -205,24 +207,25 @@
                         <div class="input-group">
                             <p>
 
-                                <img src="fotos/alumnos/user.png" id="imguserId"
+                                <img src="" id="imguserId"
                                      class="img-circle"
                                      height="150"
                                      width="150"/>
-
-
+                                    
+                                <hr>
                                 <input class="input-group" type="file" name="imguser" id="fotoId"
                                        onchange="previewFoto()"
                                        accept="image/*">
+                                    <hr>
                                 <label for="ejemplo_archivo_1">Foto (Tam. máximo archivo
                                     1 MB)</label>
-
+                                
                             </p>
 
                         </div>
 
                         <!---Fin Imagen---->
-                        
+                        <div class="m-3"></div>
                         <?php
                         
                             $marcas=getAllMarcas();
@@ -245,8 +248,9 @@
                             ?>
                         </select>
                         <!--cboMarcas Fin--->
+                        <div class="m-2"></div>
                         <!--cboCategorias Inicio--->
-                        <br>
+                        
                         <label for="">Categoria:</label>
                         <select class="form-select" name="cboCategoria" id="" require>
                             
@@ -265,7 +269,7 @@
                         </select>
 
                         <!--cboCategorias Fin--->          
-                        
+                        <div class="m-1"></div>
                         <!--BOTON INICIO--->          
                         
                          <button type="submit" class="btn btn-primary btn-sm mt-3" name="btnGrabar">Guardar</button>       
