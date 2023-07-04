@@ -35,7 +35,7 @@
             $imgFile = $_FILES['imguser']['name'];
             $tmp_dir = $_FILES['imguser']['tmp_name'];
             $imgSize = $_FILES['imguser']['size'];
-            $upload_dir = '../img';
+            $upload_dir = '../img/';
         
             if (empty($imgFile)) {
                 $prod_imagen= "sinImagen.jpg";
