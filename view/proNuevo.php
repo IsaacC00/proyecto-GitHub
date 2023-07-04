@@ -1,3 +1,8 @@
+<?php
+    
+    include_once "head.php";
+    
+?>
 
 <?php
     include_once "../funciones/funcionesMarca.php";
@@ -72,19 +77,38 @@
              $prod_imagen,
              $mar_id,
              $cat_id )==true){
-                 echo "datos del productos guardados exitosamente";
-             }else{
-                echo "******* ERROR *******";
+            
+            ?>
                  
+                 
+                 
+                 <script>
+                    
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Datos Guardados con exito',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                 </script>
+                    
+                 <?php echo 'sip';}else{  echo 'nop';?>
+                
+                   <script>
+                     Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al guardar los datos',
+                    
+                    })
+                   </script>
+                
+                <?php 
              }
     }
 ?>
 
-<?php
-    
-    include_once "head.php";
-    
-?>
+
 <h3>Nuevo</h3>
 
 <div class="container-fluid">
