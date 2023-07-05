@@ -90,11 +90,13 @@
                     showConfirmButton: false,
                     timer: 1500
                     })
+
                  </script>
                     
-                 <?php echo 'sip';}else{  echo 'nop';?>
+                 <?php echo 'sip';}else{  echo 'nop'; ?>
                 
                    <script>
+
                      Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
