@@ -169,12 +169,12 @@
 
                         <label for=""><p>Nivel de Azucar:</p> </label>
                         <div class="input-group mb-3"  >
-                        
+
                         <select name="cboNivelAzucar" class="form-select" require>
                             <option value="A" <?php if($datosPro['prod_nivel_azucar']=="A") echo "selected"; ?> >Alto</option>
                             <option value="M" <?php if($datosPro['prod_nivel_azucar']=="M") echo "selected"; ?> >Medio</option>
                             <option value="B" <?php if($datosPro['prod_nivel_azucar']=="B") echo "selected"; ?> >Bajo</option>
-                            <option value="N" <?php if($datosPro['prod_nivel_azucar']=="N") echo "selected"; ?> selected>Ninguno</option>
+                            <option value="N" <?php if($datosPro['prod_nivel_azucar']=="N") echo "selected"; ?> >Ninguno</option>
                         </select>
 
                         </div>
@@ -193,7 +193,7 @@
 
                         <label for="" class=""><p>Iva:</p> </label>
                         <div class="input-group mb-2">
-                        <input class="m-2" type="checkbox" name="chkPagaIva" class="form-check-input">
+                        <input class="m-2" type="checkbox" name="chkPagaIva"  <?php if($datosPro['prod_aplica_iva']==1) echo "checked"; ?> class="form-check-input">
                         <br>
                         <label class="form-check-label"><strong>Paga IVA</strong></label>
                         </div>
@@ -201,7 +201,7 @@
                         <label for="">Especificaciones:</label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
-                        <textarea name="txtEspecifi" class="form-control" id="" cols="5" rows="3"></textarea>
+                        <textarea name="txtEspecifi" class="form-control" id=""   cols="5" rows="3"><?php echo $datosPro['prod_especificacion']; ?></textarea>
                         </div>
 
                         <div class="m-2"></div>
@@ -215,7 +215,7 @@
                         <div class="input-group">
                             <p>
 
-                                <img src="" id="imguserId"
+                                <img src="../img/<?php echo $datosPro['prod_imagen'];?>" id="imguserId"
                                      class="img-circle"
                                      height="150"
                                      width="150"/>
@@ -242,13 +242,13 @@
                         <!--cboMarcas Inicio--->
                         <label for="">Marca:</label>
                         <select class="form-select" name="cboMarcas" id="" required>
-                            <option value="">Seleccione Marca</option>
+                            <option value=" <?php echo $datosPro['mar_id'];  ?> "> <?php echo getMarcaById($datosPro['mar_id']); ?> </option>
                             <?php
                                 if($marcas != null){
                                         
-                                    foreach ($marcas as $indice => $rowM) {
+                                    foreach ($marcas as $indice => $rowM) { 
                             ?>
-                                <option value="<?php  echo $rowM['mar_id'];  ?>"> <?php  echo $rowM['mar_nombre'];  ?> </option>
+                                <option value="<?php  echo $rowM['mar_id'];  ?>"> <?php  echo $rowM['mar_nombre'];  ?>  </option>
                             <?php 
                                     }
                             
@@ -259,16 +259,16 @@
                         <div class="m-2"></div>
                         <!--cboCategorias Inicio--->
                         
-                        <label for="">Categoria:</label>
+                        <label for=""  >Categoria: </label>
                         <select class="form-select" name="cboCategoria" id="" required>
                             
-                            <option value="">Seleccione Categoria</option>
+                            <option value="<?php echo $datosPro['cat_id'];  ?>" > <?php echo getCategoriaById($datosPro['cat_id']); ?> </option>
                             <?php
                                 if($marcas != null){
                                         
                                     foreach ($catego as $indice => $rowC) {
                             ?>
-                                <option value="<?php  echo $rowC['cat_id'];  ?>"> <?php  echo $rowC['cat_desc'];  ?> </option>
+                                <option value="<?php  echo $rowC['cat_id'];  ?>">  </option>
                             <?php 
                                     }
                             
