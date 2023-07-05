@@ -29,11 +29,11 @@ function getAllProductos()
 function getProductoById($idbusca)
 {
   try {
-    $sql = "SELECT * FROM tproductos
-          WHERE codigo=:pidbusca";
+    $sql = "SELECT * FROM tab_productos
+          WHERE id_prod=:pid_prod";
     $conexion = conectaBaseDatos();
     $stmt = $conexion->prepare($sql);
-    $stmt->bindparam(":pidbusca", $idbusca);
+    $stmt->bindparam(":pid_prod", $idbusca);
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
       $registro = $stmt->fetch(PDO::FETCH_ASSOC);

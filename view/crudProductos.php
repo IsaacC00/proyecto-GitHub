@@ -65,11 +65,12 @@
       ?> </td>
 
       <td> 
-          <img src="../img/<?php echo $row['prod_imagen']; ?>" width="100px" alt="">
+          <img src="../img/<?php echo $row['prod_imagen']; ?>" width="80px" alt="">
            </td>
       <td>
         <a href="#" type="button" class="btn btn-primary" >Ver</a>
-        <a href="#" type="button" class="btn btn-warning" >Edit</a>
+        <!--  hacemos click en el boton editar y le mando el codigo del producto que quiero editar --->
+        <a href="proEditar.php?id_prod=<?php echo  $row['id_prod']; ?>" type="button" class="btn btn-warning" >Edit</a>
         <a href="#" type="button" class="btn btn-danger" >Delete</a>
       </td>
     </tr>

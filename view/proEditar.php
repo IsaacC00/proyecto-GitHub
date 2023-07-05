@@ -5,11 +5,16 @@
 ?>
 
 <?php
-    include_once "../funciones/funcionesMarca.php";
-    include_once "../funciones/funcionesCategoria.php";
-    include_once "../funciones/funcionesProducto.php";
-    
-
+ include_once "../funciones/funcionesMarca.php";
+ include_once "../funciones/funcionesCategoria.php";
+ include_once "../funciones/funcionesProducto.php";
+ 
+ if(isset($_GET['id_prod'])){
+    $id_prod=$_GET['id_prod'];
+    echo "recibido ".$id_prod;
+    $datosPro=getProductoById($id_prod);
+}
+   
     if(isset($_POST['btnGrabar'])){
         
              $id_prod=$_POST['txtCodigo'];
@@ -111,6 +116,7 @@
 ?>
 
 
+
 <h3>Nuevo</h3>
 
 <div class="container-fluid">
@@ -124,51 +130,51 @@
                    <div class="card card-primary">
 
                     <div class="card-body">
-
+                        <!-- los id´s jamas se modifican -->
                         <label for="">Codigo :</label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
-                        <input type="text"  name="txtCodigo" class="form-control" aria-describedby="basic-addon1">
+                        <input type="text"  name="txtCodigo" value="<?php echo $datosPro['id_prod']; ?>" readonly class="form-control" aria-describedby="basic-addon1">
                         </div>
 
                         <label for="">Descripcion:</label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
-                        <input type="text"  name="txtDesc" class="form-control" aria-describedby="basic-addon1">
+                        <input type="text"  name="txtDesc" value="<?php echo $datosPro['prod_desc']; ?>" class="form-control" aria-describedby="basic-addon1">
                         </div>
                         
                         <label for="">  <p>Precio Costo:</p> </label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">$</span>
-                        <input type="number"  name="txtPrecio" class="form-control" aria-describedby="basic-addon1">
+                        <input type="number"  name="txtPrecio" value="<?php echo $datosPro['prod_precio_c']; ?>" class="form-control" aria-describedby="basic-addon1">
                         </div>
 
                         <label for="">  <p>Precio Venta:</p> </label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">$</span>
-                        <input type="number"  name="txtPrecioV" class="form-control" aria-describedby="basic-addon1">
+                        <input type="number"  name="txtPrecioV" value="<?php echo $datosPro['prod_precio_v']; ?>" class="form-control" aria-describedby="basic-addon1">
                         </div>
 
                         <label for="">  <p>Stock:</p> </label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
-                        <input type="number"  name="txtStock" class="form-control" aria-describedby="basic-addon1">
+                        <input type="number"  name="txtStock" value="<?php echo $datosPro['prod_stock']; ?>" class="form-control" aria-describedby="basic-addon1">
                         </div>
 
                         <label for="">  <p>Fecha Elaboracion:</p> </label>
                         <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">#</span>
-                        <input type="date"  name="txtFechaElab" class="form-control" aria-describedby="basic-addon1">
+                        <input type="date"  name="txtFechaElab" value="<?php echo $datosPro['prod_fecha_elab']; ?>" class="form-control" aria-describedby="basic-addon1">
                         </div>
 
                         <label for=""><p>Nivel de Azucar:</p> </label>
-                        <div class="input-group mb-3">
-
+                        <div class="input-group mb-3"  >
+                        
                         <select name="cboNivelAzucar" class="form-select" require>
-                            <option value="A">Alto</option>
-                            <option value="M">Medio</option>
-                            <option value="B">Bajo</option>
-                            <option value="N" selected>Ninguno</option>
+                            <option value="A" <?php if($datosPro['prod_nivel_azucar']=="A") echo "selected"; ?> >Alto</option>
+                            <option value="M" <?php if($datosPro['prod_nivel_azucar']=="M") echo "selected"; ?> >Medio</option>
+                            <option value="B" <?php if($datosPro['prod_nivel_azucar']=="B") echo "selected"; ?> >Bajo</option>
+                            <option value="N" <?php if($datosPro['prod_nivel_azucar']=="N") echo "selected"; ?> selected>Ninguno</option>
                         </select>
 
                         </div>
