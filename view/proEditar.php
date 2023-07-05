@@ -268,7 +268,7 @@
                                         
                                     foreach ($catego as $indice => $rowC) {
                             ?>
-                                <option value="<?php  echo $rowC['cat_id'];  ?>">  </option>
+                                <option value="<?php  echo $rowC['cat_id'];  ?>"> <?php  echo $rowC['cat_desc'];  ?> </option>
                             <?php 
                                     }
                             
