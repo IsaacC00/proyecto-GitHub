@@ -15,7 +15,7 @@
     $datosPro=getProductoById($id_prod);
 }
    
-    if(isset($_POST['btnGrabar'])){
+    if(isset($_POST['btnUpdate'])){
         
              $id_prod=$_POST['txtCodigo'];
              $prod_desc=$_POST['txtDesc'];
@@ -259,7 +259,7 @@
                         <div class="m-2"></div>
                         <!--cboCategorias Inicio--->
                         
-                        <label for=""  >Categoria: </label>
+                        <label for="">Categoria: </label>
                         <select class="form-select" name="cboCategoria" id="" required>
                             
                             <option value="<?php echo $datosPro['cat_id'];  ?>" > <?php echo getCategoriaById($datosPro['cat_id']); ?> </option>
@@ -280,7 +280,7 @@
                         <div class="m-1"></div>
                         <!--BOTON INICIO--->          
                         
-                         <button type="submit" class="btn btn-primary btn-sm mt-3" name="btnGrabar">Guardar</button>       
+                         <button type="submit" class="btn btn-primary btn-sm mt-3" name="btnUpdate">Guardar Cambios</button>       
                         
                          <!--BOTON FINAL--->          
                         
