@@ -13,8 +13,9 @@
 <a href="proNuevo.php" type="button" class="btn btn-primary">Nuevo Producto</a>
 <br>
 <br>
-<table class="table table-striped">
-  <thead>
+
+<table id="example" class="table table-striped" style="width:100%">
+<thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">DESCRIPCION</th>
@@ -78,12 +79,15 @@
 <?php 
 
         }//foreach
-      }//if
+        }//if
 
 ?>
 
   </tbody>
-</table>
+
+ 
+
+    </table>
 
 <?php
     include_once "footer.php";

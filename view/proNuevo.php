@@ -272,13 +272,30 @@
 
                         <!--cboCategorias Fin--->          
                         <div class="m-1"></div>
+
                         <!--BOTON INICIO--->          
                         
                          <button type="submit" class="btn btn-primary btn-sm mt-3" name="btnGrabar">Guardar</button>       
                         
                          <!--BOTON FINAL--->          
                         
-                         
+                         <!--JS IMAGEN--->   
+                         <script>
+                            
+                                function previewFoto() {
+                                    var input = document.getElementById("fotoId");
+                                    var fReader = new FileReader();
+                                    fReader.readAsDataURL(input.files[0]);
+                                    fReader.onloadend = function (event) {
+                                        var img = document.getElementById("imguserId");
+                                        img.src = event.target.result;
+
+                                    }
+                                }
+        
+                             </script>
+                        <!--JS IMAGEN--->
+
                     </div>
 
                  </div>

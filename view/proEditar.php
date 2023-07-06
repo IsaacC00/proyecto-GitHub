@@ -284,7 +284,23 @@
                         
                          <!--BOTON FINAL--->          
                         
-                         
+                             <!--JS IMAGEN--->   
+                             <script>
+                            
+                                function previewFoto() {
+                                    var input = document.getElementById("fotoId");
+                                    var fReader = new FileReader();
+                                    fReader.readAsDataURL(input.files[0]);
+                                    fReader.onloadend = function (event) {
+                                        var img = document.getElementById("imguserId");
+                                        img.src = event.target.result;
+
+                                    }
+                                }
+                                
+                            </script>
+                            <!--JS IMAGEN--->
+
                     </div>
 
                  </div>
