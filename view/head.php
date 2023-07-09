@@ -19,16 +19,20 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">Inicio</a>
+
+                <a class="navbar-brand" href="../index.php">
+                
+                Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                        
@@ -47,4 +51,4 @@
                 </div>
             </div>
         </nav>
-
+</div>
