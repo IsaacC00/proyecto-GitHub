@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!--ADMINLITE-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1.0/dist/css/adminlte.min.css">
+    <!--ADMINLITE-->
+
     <!--Sweet-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--Sweet-->
@@ -21,7 +25,7 @@
 <body>
     <div class="">
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="../index.php">
