@@ -16,8 +16,9 @@ if(isset($_GET['id_prod'])){
 }
 
 if( isset($_POST['btnEliminar']) ){
-   $id_prod=$_GET['txtCodigo'];
+   $id_prod=$_POST['txtCodigo'];
    deleteProducto($id_prod);
+   header('Location: crudProductos.php');
 }
 
 ?>
