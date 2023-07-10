@@ -52,8 +52,6 @@
 
         $prod_imagen = $nombrearchivo . "." . $imgExt;
 
-        $max_ancho = 400;
-        $max_alto = 300;
 
         if (in_array($imgExt, $valid_extensions)) {
             // Check file size '1MB'
