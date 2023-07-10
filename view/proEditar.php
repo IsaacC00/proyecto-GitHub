@@ -69,7 +69,7 @@
              $mar_id=$_POST['cboMarcas'];
              $cat_id=$_POST['cboCategoria'];
 
-             if(insertProducto(
+             if(updateProducto(
             $id_prod,
              $prod_desc,
              $prod_precio_c,
