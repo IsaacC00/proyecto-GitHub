@@ -113,7 +113,8 @@ $cat_id)
 
 /**UPDATE PRODUCTO */
 
-function updateProducto( $id_prod,
+function updateProducto( 
+  $id_prod,
 $prod_desc,
 $prod_precio_c,
 $prod_precio_v,
@@ -128,7 +129,7 @@ $cat_id)
 { //INSERT, UPDATE, DELETE
   try {
             $sql = "UPDATE tab_productos SET
-            (
+            
             prod_desc=:pprod_desc,
             prod_precio_c=:pprod_precio_c,
             prod_precio_v=:pprod_precio_v,
@@ -140,7 +141,7 @@ $cat_id)
             prod_imagen=:pprod_imagen,
             mar_id=:pmar_id,
             cat_id= :pcat_id
-            ) WHERE id_prod=:pid_prod";
+             WHERE id_prod=:pid_prod";
     $conexion = conectaBaseDatos();
     $stmt = $conexion->prepare($sql);
     

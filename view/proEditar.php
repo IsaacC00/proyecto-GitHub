@@ -35,37 +35,42 @@
              
 
 
-            /****************************************** */
+            /***************** GUARDAR IMAGEN ************************* */
 
-            $imgFile = $_FILES['imguser']['name'];
-            $tmp_dir = $_FILES['imguser']['tmp_name'];
-            $imgSize = $_FILES['imguser']['size'];
-            $upload_dir = '../img/';
-        
-            if (empty($imgFile)) {
-                $prod_imagen= "sinImagen.jpg";
-                move_uploaded_file($tmp_dir, $upload_dir . $prod_imagen);
-            } else {
-                $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION));
-                $valid_extensions = array('jpeg', 'jpg', 'gif');
-                /**$nombrearchivo = substr($apellidos, 0, 4) . '_' . substr($nombres, 0, 4) . $cedula;*/
-                $numero = rand(1000, 9999);
-                $prod_imagen = $numero . "." . $imgExt;
-        
-                if (in_array($imgExt, $valid_extensions)) {
-                    // Check file size '1MB'
-                    if ($imgSize < 1000000) {
-                        move_uploaded_file($tmp_dir, $upload_dir . $prod_imagen);
-                    } else {
-                        $error[] = "Atención, su archivo es muy grande, debe ser menor a 100 KB";
-                    }
-                } else {
-                    $error[] = "Lo siento, JPG, JPEG, PNG & GIF formatos de archivo permitidos";
+    $fotoanterior = $_POST['txtFotoAnterior'];
+
+    $imgFile = $_FILES['imguser']['name'];
+    $tmp_dir = $_FILES['imguser']['tmp_name'];
+    $imgSize = $_FILES['imguser']['size'];
+    $upload_dir = '../img/';
+
+
+    if ($imgFile) {
+        $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION));
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
+        $nombrearchivo = "foto_" . $id_prod;
+
+        $prod_imagen = $nombrearchivo . "." . $imgExt;
+
+        $max_ancho = 400;
+        $max_alto = 300;
+
+        if (in_array($imgExt, $valid_extensions)) {
+            // Check file size '1MB'
+         
+                if ($fotoanterior != 'sinImagen.jpg') {
+                    unlink($upload_dir . $fotoanterior);
                 }
-        
-            }
+                move_uploaded_file($tmp_dir, $upload_dir . $prod_imagen);
+           
+        } else {
+            $imgerror = "Lo siento, JPG, JPEG, PNG & GIF formatos de archivo permitidos";
+        }
+    } else {
+        $prod_imagen = $fotoanterior; //antigua imagen 
+    }
 
-            /****************************************** */
+            /*************** GUARDAR IMAGEN ***************** */
              $mar_id=$_POST['cboMarcas'];
              $cat_id=$_POST['cboCategoria'];
 
@@ -82,7 +87,7 @@
              $prod_imagen,
              $mar_id,
              $cat_id )==true ){
-            
+                header('Location: crudProductos.php');
             ?>
                  
                  
@@ -118,6 +123,8 @@
 
 <div class="container-fluid" style=" background-color: #cfced0 ">
 
+
+            
             <section class="content-header">
                 <div class="container-fluid">
                     <h1 class="text-center mb-3 mt-3">Editar Producto</h1>
@@ -129,6 +136,8 @@
 
 
                     <form method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" name="txtFotoAnterior" value="<?php echo $datosPro['prod_imagen'];?>">
 
                         <div class="row">
 
