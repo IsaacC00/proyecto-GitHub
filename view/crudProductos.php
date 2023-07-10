@@ -75,7 +75,7 @@
                                 <a href="#" type="button" class="btn btn-primary" >Ver</a>
                                 <!--  hacemos click en el boton editar y le mando el codigo del producto que quiero editar --->
                                 <a href="proEditar.php?id_prod=<?php echo  $row['id_prod']; ?>" type="button" class="btn btn-warning" >Edit</a>
-                                <a href="#" type="button" class="btn btn-danger" >Delete</a>
+                                <a href="proEliminar.php?id_prod=<?php echo  $row['id_prod']; ?>" type="button" class="btn btn-danger" >Delete</a>
                               </td>
                             </tr>
                     

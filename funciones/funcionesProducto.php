@@ -166,4 +166,20 @@ $cat_id)
 }
 
 
+/**DELETE PRODUCTO */
+
+function deleteProducto($id_prod)
+{ //INSERT, UPDATE, DELETE
+  try {
+    $sql = "DELETE FROM tab_productos WHERE id_prod=:pid_prod ";
+    $conexion = conectaBaseDatos();
+    $stmt = $conexion->prepare($sql);
+    $stmt->bindparam(":pid_prod", $id_prod);
+    $stmt->execute();
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+  }
+}
+
+
 ?>
